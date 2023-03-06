@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>animal</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Flaticon Font -->
+        <link href="{% static 'lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+   
+
+
+
+
+    <!-- Services Start -->
+    <div class="container-fluid bg-light pt-5">
+        <div class="container py-5">
+            <div class="d-flex flex-column text-center mb-5">
+                <h2 class="display-4 m-0">Choose Animal</h2>
+            </div>
+            <div class="row pb-3">
+                <div onclick="openInterviewCow('cow','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/cow.png'%}" style="width: 250px;"/>
+                        <h3 class="mb-3">Cow</h3>
+                       
+                    </div>
+                </div>
+                <div onclick="openInterviewGoat('goat','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/goat.png'%}" style="width: 250px;"/>
+                        <h3 class="mb-3">Goat</h3>
+                     
+                    </div>
+                </div>
+                <div onclick="openInterviewSheep('sheep','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/sheep.png'%}" style="width: 250px;"/>
+                        <h3 class="mb-3">Sheep</h3>
+                
+                    </div>
+                </div>
+                <div  onclick="openInterviewChicken('chicken','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/chicken.jpg'%}" style="width: 250px;"/>
+                        <h3 class="mb-3">Chicken</h3>
+       
+                    </div>
+                </div>
+                <div  onclick="openInterviewRabbit('rabbit','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/rabbit.jpg'%}" />
+                        <h3 class="mb-3">Rabbit</h3>
+                    
+                    </div>
+                </div>
+                <div onclick="openInterviewTurkey('turkey','0','1')" class="col-md-6 col-lg-4 mb-4" style="cursor: pointer;">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <img src="{% static 'img/turkey.png'%}" style="width: 250px;"/>
+                        <h3 class="mb-3">Turkey</h3>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openInterviewCow(animal,step,choice){
+            window.location.href = `/cowinterview/${animal}/${step}/${choice}/`;
+        }
+        function openInterviewGoat(animal,step,choice){
+            window.location.href = `/goatinterview/${animal}/${step}/${choice}/`;
+        }
+        function openInterviewSheep(animal,step,choice){
+            window.location.href = `/sheepinterview/${animal}/${step}/${choice}/`;
+        }
+        function openInterviewChicken(animal,step,choice){
+            window.location.href = `/chickeninterview/${animal}/${step}/${choice}/`;
+        }
+        function openInterviewRabbit(animal,step,choice){
+            window.location.href = `/rabbitinterview/${animal}/${step}/${choice}/`;
+        }
+        function openInterviewTurkey(animal,step,choice){
+            window.location.href = `/turkeyinterview/${animal}/${step}/${choice}/`;
+        }
+        </script>
+    
+    <div class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">
+                    &copy; All Rights Reserved
+                    
+                </p>
+            </div>
+          
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <script src="{% static 'https://code.jquery.com/jquery-3.4.1.min.js'%}"></script>
+    <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js'%}"></script>
+    <script src="{% static 'mail/contact.js'%}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>Vetenary System</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css'%}" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Vet</span>Plus</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a  href="{% url 'index'%}" class="nav-item nav-link active">Home</a>
+                  
+                </div>
+                <a  href="{% url 'checkup'%}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Start checkup</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/photo.jpg'%}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h3 class="text-white mb-3 d-none d-sm-block">What concerns about your animal health today?</h3>
+                            <h5 class="text-white mb-3 d-none d-sm-block">
+                                Check symptoms and find out what could be causing them. It's fast and free.</h5>
+                            <a  href="{% url 'checkup'%}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Start Checkup</a>
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+     
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+  
+
+    <!-- About Start -->
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
+                <h4 class="text-secondary mb-3">About Us</h4>
+                <h1 class="display-4 mb-4"><span class="text-primary">Vetenary</h1>
+                <h5 class="text-muted mb-3">provides you with a fast and accurate assessment of your animal symptoms</h5>
+               
+                <ul class="list-inline">
+                    <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Enter Symptoms</h5></li>
+                    <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Answer some simple questions</h5></li>
+                    <li><h5><i class="fa fa-check-double text-secondary mr-3"></i>Done! Your assessment will reveal:the possible causes for symptoms, treatment and preventive measures</h5></li>
+                </ul>
+               
+            </div>
+            <div class="col-lg-5">
+                <div class="row px-3">
+                    <div class="col-12 p-0">
+                        <img class="img-fluid w-100" src="{% static 'img/sheep.jpg'%}" alt="">
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+  
+    <div class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">
+                    &copy; <a class="text-white font-weight-bold" href="#">Vet Plus</a>. All Rights Reserved
+                   
+                </p>
+            </div>
+       
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="{% static 'https://code.jquery.com/jquery-3.4.1.min.js'%}"></script>
+    <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+    <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js'%}"></script>
+    <script src="{% static 'mail/contact.js'%}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>
