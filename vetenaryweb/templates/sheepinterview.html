@@ -41,7 +41,10 @@
             </button>
             <div style="margin: 30px;" class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-               
+                    <a href="{% url 'index'%}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'notification'%}" class="nav-item nav-link">Notification</a>
+                    <a href="{% url 'feedback'%}" class="nav-item nav-link">FeedBack</a>
+                  
                 </div>
                 <a href="{% url 'checkup'%}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Start Checkup</a>
             </div>
@@ -59,23 +62,25 @@
                 <div class="col-md-6 col-lg-6 mb-4">
                     <div class="d-flex flex-column bg-white mb-2 p-3 p-sm-5">
                         <div class="row">
-                        <div class="col-md-8 col-lg-8 ">
-                            <form method="post" action="/Tests/Post/">      
+                        <div class="col-md-12 col-lg-12 ">
+                            <form method="post" action="{% url 'sheepinterview' %}" onsubmit="return validateForm()"> 
+                                {% csrf_token %}     
                                 <fieldset>      
                                     <legend>Choose symptoms</legend>      
-                                    <input type="checkbox" name="favorite_pet" value="Cats"><span style="margin-left: 10px;">Fever</span><br>      
-                                    <input type="checkbox" name="favorite_pet" value="Dogs"><span style="margin-left: 10px;">Rapid breathing</span><br>      
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Swelling</span><br>    
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Sudden death</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Blood in excretions</span><br>     
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Blistering or sores in the mouth, on the tongue, lips, gums, and inner cheeks</span><br>  
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Loss of appetite and weight loss</span><br>   
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Difficulty in swallowing</span><br>   
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Dehydration</span><br>   
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Lameness</span><br>  
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Excessive salivation</span><br>  
-                                    <br>      
-                                    <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>      
+                                    <label><input type="checkbox" name="symptoms" value="1"> Fever</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="2"> Blistering or sores in the mouth, on the tongue, lips, gums, and inner cheeks</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="3"> Excessive salivation</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="4"> Lameness</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="5"> Blisters or sores on the feet, including between the toes and on the heels</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Loss of appetite and weight loss</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="7"> Difficulty in swallowing</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="8"> Dehydration</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="9"> Sudden death</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="10"> High fever</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="11"> Rapid breathing</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="12"> Swelling</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="13"> Blood in excretions</label><br>
+                                    <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  
                                 </fieldset>      
                             </form>
                        
@@ -91,6 +96,28 @@
             </div>
         </div>
     </div>
+    <script>
+        function validateForm() {
+          var checkboxes = document.getElementsByName('symptoms');
+          var checkedCount = 0;
+          for (var i=0; i<checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              checkedCount++;
+            }
+          }
+          if (checkedCount < 3) {
+            alert('Please select at least 3 symptoms.');
+            return false;
+          }
+          return true;
+        }
+      </script>
+
+
+
+
+
+
      <script>
     function sendChoice(animal,stepp,choice){
         var step='{{symptom.step}}'

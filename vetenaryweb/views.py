@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Symptoms
 from .models import Disease
+from .models import FeedBack
 def index(request):
     return render(request, 'index.html')
 
@@ -10,160 +10,122 @@ def checkup(request):
 def animal(request):
     return render(request, 'animal.html')
 
-def cowinterview(request,animal,step,choice):
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="2")
-    elif step =="3" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="4")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "0":
-        result=Disease.objects.get(animal=animal, diseaseid=5)
-        return render(request,"result.html",{'result':result})
-    elif step == "2" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    return render(request, 'cowinterview.html',{'symptom': symptom})
-def goatinterview(request,animal,step,choice):
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="2")
-    elif step =="3" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="3")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "4" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=3)
-        return render(request,"result.html",{'result':result})
-    elif step == "4" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="4")
-    elif step == "5" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="5")
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=6)
-        return render(request,"result.html",{'result':result})
-    elif step == "6" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    return render(request, 'goatinterview.html',{'symptom': symptom})
+def notification(request):
+    return render(request, 'notification.html')
 
-def sheepinterview(request,animal,step,choice):
-    print(animal)
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    elif step =="2" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="2")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=3)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "0":
-        result=Disease.objects.get(animal=animal, diseaseid=5)
-        return render(request,"result.html",{'result':result})
-    elif step == "2" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    return render(request, 'sheepinterview.html',{'symptom': symptom})
+def feedback(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+        feed=FeedBack.objects.create(name=name, email=email,subject=subject,message=message)
+        feed.save()
+        return render(request, 'feedback.html',{"message":"feedback sent successfully"})
+    return render(request, 'feedback.html')
 
-def chickeninterview(request,animal,step,choice):
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    elif step =="3" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="4")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=3)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step ="3")
-    elif step == "2" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="2")
-    return render(request, 'chickeninterview.html',{'symptom': symptom})
 
-def rabbitinterview(request,animal,step,choice):
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="2")
-    elif step =="3" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="4")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "0":
-        result=Disease.objects.get(animal=animal, diseaseid=5)
-        return render(request,"result.html",{'result':result})
-    elif step == "2" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    return render(request, 'rabbitinterview.html',{'symptom': symptom})
+def cowinterview(request):
+    if request.method == 'POST':
+        symptoms = request.POST.getlist('symptoms')
+        fmd_symptoms = set(['1', '2', '3', '4', '5', '6'])
+        anthrax_symptoms = set(['7', '8', '9', '10', '11', '12', '13'])
+        fmd_selected = set(symptoms).issuperset(fmd_symptoms) or len(set(symptoms).intersection(fmd_symptoms)) >= 3
+        anthrax_selected = set(symptoms).issuperset(anthrax_symptoms) or len(set(symptoms).intersection(anthrax_symptoms)) >= 3
+        if fmd_selected and anthrax_selected:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        elif fmd_selected:
+            disease = 'FMD disease'
+            disease=Disease.objects.get(animal="cow",diseaseid=1)
+        elif anthrax_selected:
+            disease = 'anthrax'
+            disease=Disease.objects.get(animal="cow",diseaseid=2)
+        else:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        return render(request, 'result.html', {'disease': disease})
+    else:
+        return render(request, 'cowinterview.html')
+def goatinterview(request):
+    if request.method == 'POST':
+        symptoms = request.POST.getlist('symptoms')
+        fmd_symptoms = set(['1', '2', '3', '4', '5', '6'])
+        anthrax_symptoms = set(['7', '8', '9', '10', '11'])
+        fmd_selected = set(symptoms).issuperset(fmd_symptoms) or len(set(symptoms).intersection(fmd_symptoms)) >= 3
+        anthrax_selected = set(symptoms).issuperset(anthrax_symptoms) or len(set(symptoms).intersection(anthrax_symptoms)) >= 3
+        if fmd_selected and anthrax_selected:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        elif fmd_selected:
+            disease = 'FMD disease'
+            disease=Disease.objects.get(animal="goat",diseaseid=1)
+        elif anthrax_selected:
+            disease = 'anthrax'
+            disease=Disease.objects.get(animal="goat",diseaseid=2)
+        else:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        return render(request, 'result.html', {'disease': disease})
+    else:
+        return render(request, 'goatinterview.html')
+def sheepinterview(request):
+    if request.method == 'POST':
+        symptoms = request.POST.getlist('symptoms')
+        fmd_symptoms = set(['1', '2', '3', '4', '5', '6','7','8'])
+        anthrax_symptoms = set(['9', '10', '11','12','13'])
+        fmd_selected = set(symptoms).issuperset(fmd_symptoms) or len(set(symptoms).intersection(fmd_symptoms)) >= 3
+        anthrax_selected = set(symptoms).issuperset(anthrax_symptoms) or len(set(symptoms).intersection(anthrax_symptoms)) >= 3
+        if fmd_selected and anthrax_selected:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        elif fmd_selected:
+            disease = 'FMD disease'
+            disease=Disease.objects.get(animal="sheep",diseaseid=1)
+        elif anthrax_selected:
+            disease = 'anthrax'
+            disease=Disease.objects.get(animal="sheep",diseaseid=2)
+        else:
+            disease = 'unknown'
+            disease=Disease.objects.get(animal="unknown")
+        return render(request, 'result.html', {'disease': disease})
+    else:
+        return render(request, 'sheepinterview.html')
+def chickeninterview(request):
+    if request.method == 'POST':
+        symptoms = request.POST.getlist('symptoms')
+        newcastle_symptoms = set(['1', '2', '3', '4', '5', '6'])
+        coccidiosis_symptoms = set(['7','8','9', '10', '11','12','13','14'])
+        newcastle_selected = set(symptoms).issuperset(newcastle_symptoms) or len(set(symptoms).intersection(newcastle_symptoms)) >= 3
+        coccidiosis_selected = set(symptoms).issuperset(coccidiosis_symptoms) or len(set(symptoms).intersection(coccidiosis_symptoms)) >= 3
+        if newcastle_selected and coccidiosis_selected:
+            disease=Disease.objects.get(animal="unknown")
+        elif newcastle_selected:
+            disease=Disease.objects.get(animal="chicken",diseaseid=1)
+        elif coccidiosis_selected:
+            disease=Disease.objects.get(animal="chicken",diseaseid=2)
+        else:
+            disease=Disease.objects.get(animal="unknown")
+        return render(request, 'result.html', {'disease': disease})
+    else:
+        return render(request, 'chickeninterview.html')
 
-def turkeyinterview(request,animal,step,choice):
-    if step == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="0")
-    elif step == "1" and choice == "1":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    elif step =="1" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step="2")
-    elif step =="3" and choice =="0":
-        symptom=Symptoms.objects.get(animal=animal,step ="4")
-    elif step == "2" and choice == "1":
-        result=Disease.objects.get(animal=animal,diseaseid=1)
-        return render(request,"result.html",{'result':result})
-    elif step == "3" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=2)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "1":
-        result=Disease.objects.get(animal=animal, diseaseid=4)
-        return render(request,"result.html",{'result':result})
-    elif step == "5" and choice == "0":
-        result=Disease.objects.get(animal=animal, diseaseid=5)
-        return render(request,"result.html",{'result':result})
-    elif step == "2" and choice == "0":
-        symptom=Symptoms.objects.get(animal=animal,step="1")
-    return render(request, 'turkeyinterview.html',{'symptom': symptom})
+def turkeyinterview(request):
+    if request.method == 'POST':
+        symptoms = request.POST.getlist('symptoms')
+        newcastle_symptoms = set(['1', '2', '3', '4', '5', '6'])
+        coccidiosis_symptoms = set(['6','7', '8', '9','10'])
+        newcastle_selected = set(symptoms).issuperset(newcastle_symptoms) or len(set(symptoms).intersection(newcastle_symptoms)) >= 3
+        coccidiosis_selected = set(symptoms).issuperset(coccidiosis_symptoms) or len(set(symptoms).intersection(coccidiosis_symptoms)) >= 3
+        if newcastle_selected and coccidiosis_selected:
+            disease=Disease.objects.get(animal="unknown")
+        elif newcastle_selected:
+            disease=Disease.objects.get(animal="turkey",diseaseid=1)
+        elif coccidiosis_selected:
+            disease=Disease.objects.get(animal="turkey",diseaseid=2)
+        else:
+            disease=Disease.objects.get(animal="unknown")
+        return render(request, 'result.html', {'disease': disease})
+    else:
+        return render(request, 'turkeyinterview.html')
 

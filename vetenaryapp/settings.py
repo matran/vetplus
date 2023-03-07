@@ -76,15 +76,15 @@ WSGI_APPLICATION = 'vetenaryapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
-   #    'default': {
-   #     'ENGINE': 'django.db.backends.postgresql',
-   #     'NAME': 'vetenary',
-   #     'USER': 'postgres',
-    #    'PASSWORD': 'henry5765',
-   #     'HOST': 'localhost',
-   #     'PORT': '5432',
-   # }
+   #  'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
+       'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vetenary',
+        'USER': 'postgres',
+        'PASSWORD': 'henry5765',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 

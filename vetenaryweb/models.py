@@ -8,9 +8,11 @@ class Disease(models.Model):
     class Meta:
         db_table = "disease"
 
-class Symptoms(models.Model):
-    animal=models.CharField(max_length=50)
-    question=models.TextField()
-    step=models.CharField(max_length=50)
+class FeedBack(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.CharField(max_length=100)
+    subject=models.CharField(max_length=300)
+    message=models.TextField()
+    create_date = models.DateTimeField(auto_now_add=True)
     class Meta:
-        db_table = "symptoms"
+        db_table = "feedback"

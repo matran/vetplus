@@ -41,7 +41,10 @@
             </button>
             <div style="margin: 30px;" class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-               
+                    <a href="{% url 'index'%}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'notification'%}" class="nav-item nav-link">Notification</a>
+                    <a href="{% url 'feedback'%}" class="nav-item nav-link">FeedBack</a>
+                  
                 </div>
                 <a href="{% url 'checkup'%}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Start Checkup</a>
             </div>
@@ -59,28 +62,28 @@
                 <div class="col-md-6 col-lg-6 mb-4">
                     <div class="d-flex flex-column bg-white mb-2 p-3 p-sm-5">
                         <div class="row">
-                        <div class="col-md-8 col-lg-8 ">
-                            <form method="post" action="/Tests/Post/">      
+                        <div class="col-md-12 col-lg-12 ">
+                            <form method="post" action="{% url 'chickeninterview' %}" onsubmit="return validateForm()"> 
+                                {% csrf_token %}     
                                 <fieldset>      
                                     <legend>Choose symptoms</legend>      
-                                    <input type="checkbox" name="favorite_pet" value="Cats"><span style="margin-left: 10px;">Respiratory distress (coughing, sneezing, gasping for air)</span><br>      
-                                    <input type="checkbox" name="favorite_pet" value="Dogs"><span style="margin-left: 10px;">Greenish diarrhea</span><br>      
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Swelling around the eyes and neck</span><br>      
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Lethargy and depression</span><br>    
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Drop in egg production</span><br>  
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Twisted neck or paralysis</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Decreased appetite and weight loss</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Weakness or lethargy</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Dehydration</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Pale combs and wattles</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Rough-looking feathers</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Huddling and reluctance to move</span><br> 
-                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Decreased egg production or abnormal eggs</span><br> 
-                                    <br>      
-                                    <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>       
+                                    <label><input type="checkbox" name="symptoms" value="1"> Respiratory distress (coughing, sneezing, gasping for air)</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="2"> Greenish diarrhea</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="3"> Swelling around the eyes and neck</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="4"> Lethargy and depression</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="5"> Drop in egg production</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Twisted neck or paralysis</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="7"> Diarrhea, which may be bloody or contain mucus</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="8"> Decreased appetite and weight loss</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="9"> Weakness or lethargy</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="10"> Dehydration</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="11"> Pale combs and wattles</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="12"> Rough-looking feathers</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="13"> Huddling and reluctance to move</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="14"> Decreased egg production or abnormal eggs</label><br>
+                                    <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  
                                 </fieldset>      
                             </form>
-                       
                         </div>
                       
                     </div>
@@ -93,14 +96,24 @@
             </div>
         </div>
     </div>
-     <script>
-    function sendChoice(animal,stepp,choice){
-        var step='{{symptom.step}}'
-        var info=parseInt(step) +1
-        window.location.href = `/chickeninterview/${animal}/${info}/${choice}/`;
-    }
-    </script>
-  
+
+    <script>
+        function validateForm() {
+          var checkboxes = document.getElementsByName('symptoms');
+          var checkedCount = 0;
+          for (var i=0; i<checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+              checkedCount++;
+            }
+          }
+          if (checkedCount < 3) {
+            alert('Please select at least 3 symptoms.');
+            return false;
+          }
+          return true;
+        }
+      </script>
+ 
     <div  class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
         <div class="row">
             <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
