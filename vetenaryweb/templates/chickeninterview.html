@@ -60,9 +60,27 @@
                     <div class="d-flex flex-column bg-white mb-2 p-3 p-sm-5">
                         <div class="row">
                         <div class="col-md-8 col-lg-8 ">
-                          <h4>{{symptom.question}}</h4>
-                          <a  onclick="sendChoice('chicken','1','0')"  class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">No</a>
-                          <a   onclick="sendChoice('chicken','1','1')" style="float: right;" class="btn btn-lg btn-secondary mt-3 mt-md-4 px-4">Yes</a>
+                            <form method="post" action="/Tests/Post/">      
+                                <fieldset>      
+                                    <legend>Choose symptoms</legend>      
+                                    <input type="checkbox" name="favorite_pet" value="Cats"><span style="margin-left: 10px;">Respiratory distress (coughing, sneezing, gasping for air)</span><br>      
+                                    <input type="checkbox" name="favorite_pet" value="Dogs"><span style="margin-left: 10px;">Greenish diarrhea</span><br>      
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Swelling around the eyes and neck</span><br>      
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Lethargy and depression</span><br>    
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Drop in egg production</span><br>  
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Twisted neck or paralysis</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Decreased appetite and weight loss</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Weakness or lethargy</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Dehydration</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Pale combs and wattles</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Rough-looking feathers</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Huddling and reluctance to move</span><br> 
+                                    <input type="checkbox" name="favorite_pet" value="Birds"><span style="margin-left: 10px;">Decreased egg production or abnormal eggs</span><br> 
+                                    <br>      
+                                    <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>       
+                                </fieldset>      
+                            </form>
+                       
                         </div>
                       
                     </div>
@@ -83,7 +101,7 @@
     }
     </script>
   
-    <div  class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111; position: absolute; bottom: 0;">
+    <div  class="container-fluid text-white py-4 px-sm-3 px-md-5" style="background: #111111;">
         <div class="row">
             <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
                 <p class="m-0 text-white">
