@@ -67,17 +67,22 @@
                                 {% csrf_token %}     
                                 <fieldset>      
                                     <legend>Choose symptoms</legend>      
+                                         <!-- fdm desi-->
+                                    <h3>Main</h3>    
                                     <label><input type="checkbox" name="symptoms" value="1"> Fever</label><br>
                                     <label><input type="checkbox" name="symptoms" value="2"> Blistering or sores in the mouth, on the tongue, lips, gums, and inner cheeks</label><br>
                                     <label><input type="checkbox" name="symptoms" value="3"> Excessive salivation</label><br>
                                     <label><input type="checkbox" name="symptoms" value="4"> Lameness</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="9"> Sudden death</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="10"> High fever</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="11"> Rapid breathing</label><br>
+
+                                    <h3>Other</h3>
+                                    <!-- anthrax-->
                                     <label><input type="checkbox" name="symptoms" value="5"> Blisters or sores on the feet, including between the toes and on the heels</label><br>
                                     <label><input type="checkbox" name="symptoms" value="6"> Loss of appetite and weight loss</label><br>
                                     <label><input type="checkbox" name="symptoms" value="7"> Difficulty in swallowing</label><br>
                                     <label><input type="checkbox" name="symptoms" value="8"> Dehydration</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="9"> Sudden death</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="10"> High fever</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="11"> Rapid breathing</label><br>
                                     <label><input type="checkbox" name="symptoms" value="12"> Swelling</label><br>
                                     <label><input type="checkbox" name="symptoms" value="13"> Blood in excretions</label><br>
                                     <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  

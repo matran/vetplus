@@ -67,19 +67,33 @@
                                 {% csrf_token %}     
                                 <fieldset>      
                                     <legend>Choose symptoms</legend>      
+                                     <h3>Main</h3>
+                                     <!-- FMD disease-->
                                     <label><input type="checkbox" name="symptoms" value="1"> Blisters or ulcers on the mouth, tongue, gums, and lips</label><br>
                                     <label><input type="checkbox" name="symptoms" value="2"> Salivation or drooling</label><br>
                                     <label><input type="checkbox" name="symptoms" value="3"> Lameness or reluctance to move</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="4"> Fever</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="5"> Loss of appetite</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="6"> Decreased milk production</label><br>
+                                      <!-- anthrax-->
                                     <label><input type="checkbox" name="symptoms" value="7"> High fever</label><br>
                                     <label><input type="checkbox" name="symptoms" value="8"> Rapid breathing</label><br>
                                     <label><input type="checkbox" name="symptoms" value="9"> Muscle tremors</label><br>
+
+
+
+
+                                    
+                                    <h3>Other</h3>
+                                    <!-- FMD disease-->
+                                     <label><input type="checkbox" name="symptoms" value="4"> Fever</label><br>
+                                     <label><input type="checkbox" name="symptoms" value="5"> Loss of appetite</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Decreased milk production</label><br>
+                                                                          
+                                    <!-- anthrax-->
                                     <label><input type="checkbox" name="symptoms" value="10"> Bloody discharge from body openings</label><br>
                                     <label><input type="checkbox" name="symptoms" value="11"> Difficulty standing or walking</label><br>
                                     <label><input type="checkbox" name="symptoms" value="12"> Rapid pulse</label><br>
                                     <label><input type="checkbox" name="symptoms" value="13"> Weakness and lethargy</label><br>
+                                    
+                                    
                                     <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  
                                 </fieldset>      
                             </form>

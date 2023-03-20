@@ -66,17 +66,21 @@
                             <form method="post" action="{% url 'chickeninterview' %}" onsubmit="return validateForm()"> 
                                 {% csrf_token %}     
                                 <fieldset>      
-                                    <legend>Choose symptoms</legend>      
+                                    <legend>Choose symptoms</legend> 
+                                    <h2>Main</h2>
                                     <label><input type="checkbox" name="symptoms" value="1"> Respiratory distress (coughing, sneezing, gasping for air)</label><br>
                                     <label><input type="checkbox" name="symptoms" value="2"> Greenish diarrhea</label><br>
                                     <label><input type="checkbox" name="symptoms" value="3"> Swelling around the eyes and neck</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="4"> Lethargy and depression</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="5"> Drop in egg production</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="6"> Twisted neck or paralysis</label><br>
                                     <label><input type="checkbox" name="symptoms" value="7"> Diarrhea, which may be bloody or contain mucus</label><br>
                                     <label><input type="checkbox" name="symptoms" value="8"> Decreased appetite and weight loss</label><br>
                                     <label><input type="checkbox" name="symptoms" value="9"> Weakness or lethargy</label><br>
                                     <label><input type="checkbox" name="symptoms" value="10"> Dehydration</label><br>
+                                    
+                                    <h2>Others</h2>
+                                    <label><input type="checkbox" name="symptoms" value="4"> Lethargy and depression</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="5"> Drop in egg production</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Twisted neck or paralysis</label><br>
+
                                     <label><input type="checkbox" name="symptoms" value="11"> Pale combs and wattles</label><br>
                                     <label><input type="checkbox" name="symptoms" value="12"> Rough-looking feathers</label><br>
                                     <label><input type="checkbox" name="symptoms" value="13"> Huddling and reluctance to move</label><br>

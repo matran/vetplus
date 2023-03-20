@@ -66,16 +66,20 @@
                             <form method="post" action="{% url 'turkeyinterview' %}" onsubmit="return validateForm()"> 
                                 {% csrf_token %}     
                                 <fieldset>      
-                                    <legend>Choose symptoms</legend>      
+                                    <legend>Choose symptoms</legend>
+                                    <h2>Main</h2>      
                                     <label><input type="checkbox" name="symptoms" value="1"> Respiratory signs such as coughing, sneezing, and nasal discharge</label><br>
                                     <label><input type="checkbox" name="symptoms" value="2"> Nervous system signs such as tremors, paralysis, and twisted necks</label><br>
                                     <label><input type="checkbox" name="symptoms" value="3"> Decreased feed and water intake</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="4"> Decreased egg production or abnormal eggs</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="5"> Swelling around the eyes and neck</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="6"> Diarrhea</label><br>
                                     <label><input type="checkbox" name="symptoms" value="7"> Loss of appetite</label><br>
                                     <label><input type="checkbox" name="symptoms" value="8"> Weight loss</label><br>
                                     <label><input type="checkbox" name="symptoms" value="9"> Dehydration</label><br>
+                                    
+                                    
+                                    <h2>Others</h2>
+                                    <label><input type="checkbox" name="symptoms" value="4"> Decreased egg production or abnormal eggs</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="5"> Swelling around the eyes and neck</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Diarrhea</label><br>
                                     <label><input type="checkbox" name="symptoms" value="10"> Poor growth</label><br>
                                     <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  
                                 </fieldset>      

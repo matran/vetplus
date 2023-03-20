@@ -66,17 +66,23 @@
                             <form method="post" action="{% url 'goatinterview' %}" onsubmit="return validateForm()"> 
                                 {% csrf_token %}     
                                 <fieldset>      
-                                    <legend>Choose symptoms</legend>      
+                                    <legend>Choose symptoms</legend>  
+                                    <!-- FMD disease-->    
+                                    <h3>Main</h3>
                                     <label><input type="checkbox" name="symptoms" value="1">Fever</label><br>
                                     <label><input type="checkbox" name="symptoms" value="2"> Lameness or reluctance to walk</label><br>
                                     <label><input type="checkbox" name="symptoms" value="3"> Loss of appetite</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="4"> Excessive salivation</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="5"> Blisters on the mouth, tongue, nose, and hooves</label><br>
-                                    <label><input type="checkbox" name="symptoms" value="6"> Sores or ulcers on the tongue and gums</label><br>
-
+                                    <!-- anthrax-->
                                     <label><input type="checkbox" name="symptoms" value="7"> Sudden death without any signs of illness</label><br>
                                     <label><input type="checkbox" name="symptoms" value="8"> Depression</label><br>
                                     <label><input type="checkbox" name="symptoms" value="9"> Difficulty breathing</label><br>
+                                    
+                                    <h3>Other</h3>
+                                    <!-- fdm desi-->
+                                    <label><input type="checkbox" name="symptoms" value="4"> Excessive salivation</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="5"> Blisters on the mouth, tongue, nose, and hooves</label><br>
+                                    <label><input type="checkbox" name="symptoms" value="6"> Sores or ulcers on the tongue and gums</label><br>
+                                     <!-- anthrax-->
                                     <label><input type="checkbox" name="symptoms" value="10"> Rapid heartbeat</label><br>
                                     <label><input type="checkbox" name="symptoms" value="11"> Bloody discharge from the nose, mouth, or anus</label><br>
                                     <button  class="btn btn-lg btn-secondary"  type="submit">Submit</button>  
